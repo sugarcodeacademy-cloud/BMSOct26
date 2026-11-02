@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -25,9 +26,9 @@ public class Booking extends BaseModel {
 
     @ManyToMany
     private List<ShowSeat> showSeats;
-    private Date time;
+    private LocalDateTime BookedAt;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Payment> payments;
     private double amount;
 

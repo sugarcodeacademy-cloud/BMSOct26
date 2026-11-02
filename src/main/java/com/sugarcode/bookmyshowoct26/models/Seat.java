@@ -15,6 +15,6 @@ public class Seat extends BaseModel {
 
     @Enumerated(EnumType.ORDINAL)
     private SeatType seatType;
-    private int row;
-    private int column;
+    private int rowNum;
+    private int columnNum;
 }

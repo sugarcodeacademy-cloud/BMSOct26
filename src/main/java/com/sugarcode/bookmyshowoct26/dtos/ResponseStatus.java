@@ -1,6 +1,6 @@
 package com.sugarcode.bookmyshowoct26.dtos;
 
-public enum BookingResponseStatus {
+public enum ResponseStatus {
     SUCCESS,
     FAILURE
 }

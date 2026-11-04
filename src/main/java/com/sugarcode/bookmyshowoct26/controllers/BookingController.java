@@ -1,6 +1,6 @@
 package com.sugarcode.bookmyshowoct26.controllers;
 
-import com.sugarcode.bookmyshowoct26.dtos.BookingResponseStatus;
+import com.sugarcode.bookmyshowoct26.dtos.ResponseStatus;
 import com.sugarcode.bookmyshowoct26.dtos.CreateBookingRequestDto;
 import com.sugarcode.bookmyshowoct26.dtos.CreateBookingResponseDto;
 import com.sugarcode.bookmyshowoct26.models.Booking;
@@ -8,7 +8,7 @@ import com.sugarcode.bookmyshowoct26.services.BookingService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/book")
 public class BookingController {
     private final BookingService bookingService;
 
@@ -21,10 +21,10 @@ public class BookingController {
         try {
             Booking booking = bookingService.createBooking(requestDto.getUserId(), requestDto.getShowId(), requestDto.getShowSeatIds());
             responseDto.setBookingId(booking.getId());
-            responseDto.setResponseStatus(BookingResponseStatus.SUCCESS);
+            responseDto.setResponseStatus(ResponseStatus.SUCCESS);
         }
         catch (Exception e) {
-            responseDto.setResponseStatus(BookingResponseStatus.FAILURE);
+            responseDto.setResponseStatus(ResponseStatus.FAILURE);
         }
         return responseDto;
     }

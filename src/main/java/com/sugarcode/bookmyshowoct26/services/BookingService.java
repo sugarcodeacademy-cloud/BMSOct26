@@ -8,6 +8,7 @@ import com.sugarcode.bookmyshowoct26.models.*;
 import com.sugarcode.bookmyshowoct26.models.enums.BookingStatus;
 import com.sugarcode.bookmyshowoct26.models.enums.ShowSeatStatus;
 import com.sugarcode.bookmyshowoct26.repositories.*;
+import jakarta.transaction.Transactional;
 import jakarta.websocket.server.ServerEndpoint;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +37,7 @@ public class BookingService {
         this.showRepository = showRepository;
         this.showSeatRepository = showSeatRepository;
     }
-
+    @Transactional
     public Booking createBooking(Long userId, Long showId, List<Long> showSeatIds) throws UserNotFoundException, ShowNotFoundException, SeatAlreadyBookedException {
         /*
         Steps:
